@@ -1,0 +1,8 @@
+
+podEnv:
+  - name: KRATEO_GATEWAY_DEBUG
+    value: "true"
+  - name: KRATEO_GATEWAY_CACERT_FILE
+    value: "/tmp/ca.crt"
+  - name: KRATEO_GATEWAY_CAKEY_FILE
+    value: "/tmp/ca.key"
