@@ -1,8 +1,4 @@
-
-podEnv:
-  - name: KRATEO_GATEWAY_DEBUG
-    value: "true"
-  - name: KRATEO_GATEWAY_CACERT_FILE
-    value: "/tmp/ca.crt"
-  - name: KRATEO_GATEWAY_CAKEY_FILE
-    value: "/tmp/ca.key"
+KRATEO_GATEWAY_DEBUG: true
+KRATEO_GATEWAY_ADDR: ":8443"
+KRATEO_GATEWAY_CACRT: "/tmp/ca.key"
+KRATEO_BFF_SERVER: "krateo-bff"

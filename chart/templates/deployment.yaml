@@ -32,7 +32,10 @@ spec:
           runAsNonRoot: true
           runAsUser: 1000
         volumeMounts:
-          - name: certs
+          - name: cakey
+            mountPath: /tmp
+            readOnly: true
+          - name: configmap
             mountPath: /tmp
             readOnly: true
         terminationMessagePath: /dev/termination-log
@@ -41,6 +44,9 @@ spec:
       serviceAccountName: {{ .Chart.Name }}
       terminationGracePeriodSeconds: 30
       volumes:
-        - name: certs
+        - name: cakey
           secret:
             secretName: krateo-gateway
+        - name: configmap
+          configMap:
+            name: krateo-gateway
