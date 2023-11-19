@@ -4,7 +4,7 @@ metadata:
   name: {{ .Chart.Name }}
   namespace: {{ .Release.Namespace }}
 data:
-  KRATEO_GATEWAY_DEBUG: {{ .Values.KRATEO_GATEWAY_DEBUG }}
+  KRATEO_GATEWAY_DEBUG: "{{ .Values.KRATEO_GATEWAY_DEBUG }}"
   KRATEO_GATEWAY_ADDR: {{ .Values.KRATEO_GATEWAY_ADDR }}
   KRATEO_GATEWAY_CACRT: {{ .Values.KRATEO_GATEWAY_CACRT }}
   KRATEO_BFF_SERVER: {{ .Values.KRATEO_BFF_SERVER }}.{{ .Release.Namespace }}.svc
