@@ -26,27 +26,18 @@ spec:
         env:
           {{- toYaml . | nindent 10 }}
         {{- end }}
+        envFrom:
+        - configMapRef:
+            name: {{ .Chart.Name }}
+        - secretRef:
+            name: {{ .Chart.Name }}
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: false
           runAsNonRoot: true
           runAsUser: 1000
-        volumeMounts:
-          - name: cakey
-            mountPath: /tmp/secret
-            readOnly: true
-          - name: configmap
-            mountPath: /tmp/configmap
-            readOnly: true
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       serviceAccount: {{ .Chart.Name }}
       serviceAccountName: {{ .Chart.Name }}
       terminationGracePeriodSeconds: 30
-      volumes:
-        - name: cakey
-          secret:
-            secretName: krateo-gateway
-        - name: configmap
-          configMap:
-            name: krateo-gateway
