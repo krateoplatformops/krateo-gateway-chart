@@ -33,7 +33,7 @@ spec:
           runAsUser: 1000
         volumeMounts:
           - name: cakey
-            mountPath: /tmp
+            mountPath: /tmp/secret
             readOnly: true
           - name: configmap
             mountPath: /tmp/configmap
