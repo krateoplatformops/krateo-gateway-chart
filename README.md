@@ -10,5 +10,3 @@ $ helm repo add krateo https://charts.krateo.io
 $ helm repo update krateo
 $ helm install krateo-gateway krateo/krateo-gateway 
 ```
-
-
