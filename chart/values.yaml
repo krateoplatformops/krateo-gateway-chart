@@ -4,3 +4,8 @@ KRATEO_GATEWAY_CACRT: "/tmp/ca.crt"
 KRATEO_GATEWAY_DNS_NAMES: "localhost"
 KRATEO_GATEWAY_IP_ADDRESSES: "127.0.0.1"
 KRATEO_BFF_SERVER: "http://krateo-bff.krateo-system.svc:8080"
+
+
+service:
+  type: ClusterIP
+  port: 8443
