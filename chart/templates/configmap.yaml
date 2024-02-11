@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Chart.Name }}
-  namespace: {{ .Release.Namespace }}
+  name: {{ include "krateo-gateway.fullname" . }}
+  labels:
+    {{- include "krateo-gateway.labels" . | nindent 4 }}
 data:
-  KRATEO_GATEWAY_DEBUG: "{{ .Values.KRATEO_GATEWAY_DEBUG }}"
-  KRATEO_GATEWAY_PORT: "{{ .Values.KRATEO_GATEWAY_PORT }}"
-  KRATEO_GATEWAY_CACRT: {{ .Values.KRATEO_GATEWAY_CACRT }}
-  KRATEO_GATEWAY_DNS_NAMES: {{ .Values.KRATEO_GATEWAY_DNS_NAMES }}
-  KRATEO_BFF_SERVER: {{ .Values.KRATEO_BFF_SERVER }}
-  KRATEO_GATEWAY_IP_ADDRESSES: {{ .Values.KRATEO_GATEWAY_IP_ADDRESSES }}
+  KRATEO_GATEWAY_DEBUG: "{{ .Values.env.KRATEO_GATEWAY_DEBUG }}"
+  KRATEO_GATEWAY_PORT: "{{ .Values.service.port }}"
+  KRATEO_GATEWAY_CACRT: {{ .Values.env.KRATEO_GATEWAY_CACRT }}
+  KRATEO_GATEWAY_DNS_NAMES: {{ .Values.env.KRATEO_GATEWAY_DNS_NAMES }}
+  KRATEO_BFF_SERVER: {{ .Values.env.KRATEO_BFF_SERVER }}
+  KRATEO_GATEWAY_IP_ADDRESSES: {{ .Values.env.KRATEO_GATEWAY_IP_ADDRESSES }}

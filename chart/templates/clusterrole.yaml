@@ -1,7 +1,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ include "krateo-gateway.fullname" . }}
+  labels:
+    {{- include "krateo-gateway.labels" . | nindent 4 }}
 rules:
 - apiGroups:
   - rbac.authorization.k8s.io
