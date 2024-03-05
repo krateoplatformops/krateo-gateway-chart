@@ -109,8 +109,9 @@ tolerations: []
 affinity: {}
 
 env:
-  KRATEO_GATEWAY_DEBUG: "true"
+  KRATEO_GATEWAY_DEBUG: "false"
   KRATEO_GATEWAY_CACRT: "/tmp/ca.crt"
   KRATEO_GATEWAY_DNS_NAMES: "localhost"
   KRATEO_GATEWAY_IP_ADDRESSES: "127.0.0.1"
   KRATEO_BFF_SERVER: "http://krateo-bff.krateo-system.svc:8080"
+  KRATEO_GATEWAY_DUMP_ENV: "false"
